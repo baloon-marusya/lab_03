@@ -49,15 +49,15 @@ MySharedPtr<T>::MySharedPtr(T *ptr) {
 
 template <typename T>
 MySharedPtr<T>::MySharedPtr(const MySharedPtr &r) {
-  _pointer = r.pointer;
-  _counter = r.counter;
+  _pointer = r._pointer;
+  _counter = r._counter;
   (*_counter) += 1;
 }
 
 template <typename T>
 MySharedPtr<T>::MySharedPtr(MySharedPtr &&r) noexcept {
-  _pointer = r.pointer;
-  _counter = r.counter;
+  _pointer = r._pointer;
+  _counter = r._counter;
   delete r._pointer;
   delete r._counter;
 }
