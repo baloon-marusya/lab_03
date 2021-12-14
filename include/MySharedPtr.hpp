@@ -1,6 +1,6 @@
 // Copyright 2021 Trushkov Ilya ilya.tr20002@gmail.com
-#ifndef TEMPLATE_MYSHAREDPTR_HPP
-#define TEMPLATE_MYSHAREDPTR_HPP
+#ifndef INCLUDE_MYSHAREDPTR_HPP_
+#define INCLUDE_MYSHAREDPTR_HPP_
 
 #include <atomic>
 #include <iostream>
@@ -68,8 +68,7 @@ MySharedPtr<T>::~MySharedPtr() {
     if ((*_counter) == 1) {
       delete _pointer;
       delete _counter;
-    }
-    else {
+    } else {
       (*_counter) -= 1;
     }
   }
@@ -146,4 +145,4 @@ auto MySharedPtr<T>::use_count() const -> size_t {
   return static_cast<size_t>(*_counter);
 }
 
-#endif  // TEMPLATE_MYSHAREDPTR_HPP
+#endif  // INCLUDE_MYSHAREDPTR_HPP_

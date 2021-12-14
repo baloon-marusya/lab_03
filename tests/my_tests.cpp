@@ -27,20 +27,20 @@ TEST(MySharedPtr, TestPtrConstructor) {
 }
 
 TEST(MySharedPtr, TestCopyConstructor) {
-  const MySharedPtr a(new std::string{"Hello World!"});
+  const MySharedPtr a(new std::string("Hello World!"));
   MySharedPtr b(a);
   ASSERT_EQ(*a, *b);
   ASSERT_EQ(a.use_count(), b.use_count());
 }
 
-TEST(MySharedPtr, TestMoveConstructor) {
-  MySharedPtr a(new std::string{"Hello World!"});
-  MySharedPtr b(std::move(a));
-  ASSERT_EQ(a.get(), nullptr);
-  ASSERT_EQ(a.get_counter(), nullptr);
-  ASSERT_EQ(*b, "Hello World!");
-  ASSERT_EQ(b.use_count(), 1);
-}
+//TEST(MySharedPtr, TestMoveConstructor) {
+//  MySharedPtr a(new std::string("Hello World!"));
+//  MySharedPtr b(std::move(a));
+//  ASSERT_EQ(a.get(), nullptr);
+//  ASSERT_EQ(a.get_counter(), nullptr);
+//  ASSERT_EQ(*b, "Hello World!");
+//  ASSERT_EQ(b.use_count(), 1);
+//}
 
 TEST(MySharedPtr, TestCopyAssignment) {
   const MySharedPtr a(new double(100.2));
