@@ -1,6 +1,6 @@
 // Copyright 2021 Trushkov Ilya ilya.tr20002@gmail.com
-#ifndef INCLUDE_MYSHAREDPTR_HPP_
-#define INCLUDE_MYSHAREDPTR_HPP_
+#ifndef TEMPLATE_MYSHAREDPTR_HPP
+#define TEMPLATE_MYSHAREDPTR_HPP
 
 #include <atomic>
 #include <iostream>
@@ -145,4 +145,4 @@ auto MySharedPtr<T>::use_count() const -> size_t {
   return static_cast<size_t>(*_counter);
 }
 
-#endif  // INCLUDE_MYSHAREDPTR_HPP_
+#endif  // TEMPLATE_MYSHAREDPTR_HPP
