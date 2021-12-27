@@ -1,1 +1,1 @@
-// Copyright 2021 Trushkov Ilya ilya.tr20002@gmail.com
+// Copyright 2021 Melnikova Maria dandelion.m@mail.ru
