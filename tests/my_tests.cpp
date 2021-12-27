@@ -33,14 +33,10 @@ TEST(MySharedPtr, TestCopyConstructor) {
   ASSERT_EQ(a.use_count(), b.use_count());
 }
 
-//TEST(MySharedPtr, TestMoveConstructor) {
-//  MySharedPtr a(new std::string("Hello World!"));
-//  MySharedPtr b(std::move(a));
-//  ASSERT_EQ(a.get(), nullptr);
-//  ASSERT_EQ(a.get_counter(), nullptr);
-//  ASSERT_EQ(*b, "Hello World!");
-//  ASSERT_EQ(b.use_count(), 1);
-//}
+TEST(MySharedPtr, TestMove){
+  MySharedPtr<int> a(new int(1));
+  EXPECT_EQ(std::is_move_constructible<MySharedPtr<int>>::value, true);
+}
 
 TEST(MySharedPtr, TestCopyAssignment) {
   const MySharedPtr a(new double(100.2));
@@ -49,17 +45,6 @@ TEST(MySharedPtr, TestCopyAssignment) {
   ASSERT_EQ(*a, *b);
   ASSERT_EQ(a.use_count(), b.use_count());
 }
-
-//TEST(MySharedPtr, TestMoveAssignment) {
-//  MySharedPtr a(new double(100.2));
-//  ASSERT_EQ(a.use_count(), 1);
-//  MySharedPtr b(new double(50.3));
-//  b = std::move(a);
-//  ASSERT_EQ(a.get(), nullptr);
-//  ASSERT_EQ(a.get_counter(), nullptr);
-//  ASSERT_EQ(*b, 50.3);
-//  ASSERT_EQ(b.use_count(), 1);
-//}
 
 TEST(MySharedPtr, TestNormalAccess) {
   MySharedPtr a(new int(1));

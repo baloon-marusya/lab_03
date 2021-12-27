@@ -56,10 +56,8 @@ MySharedPtr<T>::MySharedPtr(const MySharedPtr &r) {
 
 template <typename T>
 MySharedPtr<T>::MySharedPtr(MySharedPtr &&r) noexcept {
-  _pointer = r._pointer;
-  _counter = r._counter;
-  delete r._pointer;
-  delete r._counter;
+  _pointer = std::move(r._pointer);
+  _counter = std::move(r._counter);
 }
 
 template <typename T>
@@ -88,14 +86,11 @@ auto MySharedPtr<T>::operator=(const MySharedPtr &r) -> MySharedPtr& {
 
 template <typename T>
 auto MySharedPtr<T>::operator=(MySharedPtr &&r) noexcept -> MySharedPtr& {
-  if (this == &r) {
-    return *this;
+  if (this != &r) {
+    this -> ~MySharedPtr();
+    _pointer = std::move(r._pointer);
+    _counter = std::move(r._counter);
   }
-  this->~MySharedPtr();
-  _pointer = r._pointer;
-  _counter = r._counter;
-  delete r._pointer;
-  delete r._counter;
   return *this;
 }
 
