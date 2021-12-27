@@ -1,6 +1,6 @@
 // Copyright 2021 Melnikova Maria dandelion.m@mail.ru
-#ifndef TEMPLATE_MYSHAREDPTR_HPP
-#define TEMPLATE_MYSHAREDPTR_HPP
+#ifndef INCLUDE_MYSHAREDPTR_HPP_
+#define INCLUDE_MYSHAREDPTR_HPP_
 
 #include <atomic>
 #include <iostream>
@@ -140,4 +140,4 @@ auto MySharedPtr<T>::use_count() const -> size_t {
   return static_cast<size_t>(*_counter);
 }
 
-#endif  // TEMPLATE_MYSHAREDPTR_HPP
+#endif  // INCLUDE_MYSHAREDPTR_HPP_
